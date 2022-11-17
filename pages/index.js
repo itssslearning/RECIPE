@@ -16,7 +16,8 @@ export async function getStaticProps() {
     props: {
       recipes: res.items,
     },
-    revalidate: 1
+    // revalidate --> to load changes in the web after changes r made at contentful
+    revalidate: 1 
   }
 }
 
