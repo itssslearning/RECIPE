@@ -27,11 +27,22 @@ export const getStaticPaths = async () => {
   }
 }
 
+// Gets the data
 export async function getStaticProps({params}) {
   const {items} = await client.getEntries({
     content_type: 'recipe',
     'fields.slug': params.slug
   })
+
+// 
+  if (!items.length) {
+    return {
+      redirect: {
+        destination: '/',
+        permanent: false
+      }
+    }
+  }
 
   return {
     props: {
