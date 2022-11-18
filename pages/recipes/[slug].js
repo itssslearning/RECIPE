@@ -20,8 +20,9 @@ export const getStaticPaths = async () => {
   })
 
   return {
+    // fallback=flase--->404 page
     paths,
-    fallback: false
+    fallback: true 
   }
 }
 
@@ -41,6 +42,8 @@ export async function getStaticProps({params}) {
 
 
 export default function RecipeDetails({recipe}) {
+
+  if (!recipe) return <div>Loading</div>
   
   const {featuredImage, tittle, cookingTime, ingredients, method} = recipe.fields
 
