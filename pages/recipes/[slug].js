@@ -34,7 +34,7 @@ export async function getStaticProps({params}) {
     'fields.slug': params.slug
   })
 
-// 
+  //When recipe doesnt exist redirect to Homepage, permanent false cause if it is ever going to be build a slug it should open 
   if (!items.length) {
     return {
       redirect: {
