@@ -43,6 +43,7 @@ export async function getStaticProps({params}) {
 
 export default function RecipeDetails({recipe}) {
 
+  // return skeleton <Skeleton /> -////- import Skeleton from Components ///// skeleton - loading page template
   if (!recipe) return <div>Loading</div>
   
   const {featuredImage, tittle, cookingTime, ingredients, method} = recipe.fields
